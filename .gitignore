@@ -4,3 +4,4 @@ fire_risk_plot.png
 __pycache__
 .env
 .cache.sqlite
+.DS_Store
