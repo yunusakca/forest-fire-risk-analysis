@@ -1,0 +1,6 @@
+venv
+downloaded_satellite_image.png
+fire_risk_plot.png
+__pycache__
+.env
+.cache.sqlite
