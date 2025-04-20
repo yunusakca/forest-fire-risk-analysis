@@ -15,6 +15,3 @@ This project analyzes whether a given location is forested using satellite image
 - Pandas, Matplotlib
 - Google Maps Static API
 - Open-Meteo API
-
-## Example Output
-![fire_risk_plot](fire_risk_plot.png)

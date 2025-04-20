@@ -20,24 +20,18 @@ def check_if_forest(dms_string):
 
     Image.open(BytesIO(response.content)).save("downloaded_satellite_image.png")
 
-    # Görseli oku
     image = cv2.imread("downloaded_satellite_image.png")
 
-    # HSV renk alanına çevir
     hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
-    # Yeşil renk aralığını tanımla
     lower_green = np.array([25, 20, 20])
     upper_green = np.array([100, 255, 255])
 
-    # Maske oluştur
     mask = cv2.inRange(hsv, lower_green, upper_green)
 
-    # Yeşil alan oranını hesapla
     green_ratio = np.count_nonzero(mask) / mask.size * 100
     print(f"Yeşil alan oranı: {green_ratio:.2f}%")
 
-    # Orman mı?
     is_forest = green_ratio > 30
     
     return {"green_ratio": green_ratio, "is_forest": is_forest}

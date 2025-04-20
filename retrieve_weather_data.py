@@ -16,7 +16,6 @@ def download_and_process_weather_data(dms_string, csv_prefix="weather_data", dai
     coords = parse_dms_string(dms_string)
     latitude, longitude = coords[0], coords[1]
 
-    # Setup the Open-Meteo API client with cache and retry on error
     cache_session = requests_cache.CachedSession('.cache', expire_after = -1)
     retry_session = retry(cache_session, retries = 5, backoff_factor = 0.2)
     openmeteo = openmeteo_requests.Client(session = retry_session)
