@@ -1,5 +1,5 @@
-import check_if_forest
-import retrieve_weather_data
+from scripts.check_if_forest import check_if_forest
+from scripts.retrieve_weather_data import download_and_process_weather_data
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -7,10 +7,10 @@ raw_coordinate = """
                 33°53'23.6"S 150°29'11.8"E
                 """
 
-if_forest = check_if_forest.check_if_forest(f"{raw_coordinate}")
+if_forest = check_if_forest(f"{raw_coordinate}")
 
 if if_forest["is_forest"]:
-    monthly_df = retrieve_weather_data.download_and_process_weather_data(raw_coordinate)
+    monthly_df = download_and_process_weather_data(raw_coordinate)
 
     monthly_df["fire_risk_score"] = (
         monthly_df["temperature_2m_mean"] * 0.5 +

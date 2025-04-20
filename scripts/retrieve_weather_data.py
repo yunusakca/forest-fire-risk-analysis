@@ -2,7 +2,7 @@ import openmeteo_requests
 import requests_cache
 import pandas as pd
 from retry_requests import retry
-from calculate_coordinates import parse_dms_string
+from scripts.calculate_coordinates import parse_dms_string
 from datetime import datetime, timedelta
 
 def download_and_process_weather_data(dms_string, csv_prefix="weather_data", daily_vars=None):
